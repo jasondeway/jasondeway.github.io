@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="艾诺迪亚4修改版apk下载，提供无限金币、无限钻石、无敌模式、解锁全职业及地图的安卓版资源。包含修改器使用说明、版本对比及安全安装指南。">
+    <meta name="keywords" content="艾诺迪亚4修改版apk,艾诺迪亚4,安卓修改版,无限金币,艾诺迪亚4下载,手游修改">
+    <title>艾诺迪亚4修改版apk-无限资源与全职业解锁安卓版下载指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --accent-color: #f5a623;
+            --bg-dark: #1a1a1a;
+            --bg-card: #2d2d2d;
+            --text-main: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .download-btn:hover {
+            background-color: #357abd;
+            transform: translateY(-2px);
+        }
+
+        /* 版本特性 */
+        .features {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 32px;
+            font-size: 1.8rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid #333;
+            transition: border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* 版本对比表格 */
+        .comparison {
+            padding: 40px 0;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            border: 1px solid #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 16px 24px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background-color: #383838;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .cross-icon {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* 安装指南 */
+        .guide {
+            padding: 40px 0;
+        }
+
+        .guide-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-bottom: 6px;
+            font-size: 1.1rem;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* 常见问题 */
+        .faq {
+            padding: 40px 0;
+            background-color: #232323;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #333;
+            margin-bottom: 16px;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            padding: 16px 0;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-secondary);
+        }
+
+        .faq-answer p {
+            padding-bottom: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #111;
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer-links {
+            margin-top: 16px;
+        }
+
+        .footer-links a {
+            margin: 0 8px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+            }
+
+            nav ul {
+                margin-top: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+            
+            .nav-inner {
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <div class="logo">
+                <span>GameMod</span> 安卓修改版
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">功能特性</a></li>
+                    <li><a href="#comparison">版本对比</a></li>
+                    <li><a href="#guide">安装指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>艾诺迪亚4修改版apk</h1>
+                <p>体验无限金币、钻石与无敌模式的完整版冒险。无需繁琐破解，直接安装即可畅玩艾诺迪亚4所有隐藏职业与地图。</p>
+                <a href="#download" class="download-btn">立即下载 APK</a>
+            </div>
+        </section>
+
+        <section id="features" class="features container">
+            <h2 class="section-title">修改版核心特性</h2>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <span class="feature-icon">💎</span>
+                    <h3>无限金币钻石</h3>
+                    <p>内置修改器，开启后金币与钻石数量无上限，轻松购买所有装备与技能。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">⚔️</span>
+                    <h3>无敌模式</h3>
+                    <p>角色生命值与魔法值满格，自动回血，即使面对BOSS也毫发无损。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🧙‍♂️</span>
+                    <h3>解锁全职业</h3>
+                    <p>无需达成特定条件，直接解锁所有职业（战士、法师、弓箭手、游侠、死灵法师等）。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🗺️</span>
+                    <h3>全地图开启</h3>
+                    <p>所有章节与隐藏区域即时解锁，无需完成前置剧情即可自由探索。</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="comparison" class="comparison container">
+            <h2 class="section-title">原版 vs 修改版对比</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>功能项</th>
+                            <th>官方原版</th>
+                            <th>艾诺迪亚4修改版apk</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>金币与钻石</td>
+                            <td><span class="cross-icon">✕</span> 有限，需肝度</td>
+                            <td><span class="check-icon">✓</span> 无限，随用随有</td>
+                        </tr>
+                        <tr>
+                            <td>角色属性</td>
+                            <td><span class="cross-icon">✕</span> 受数值限制</td>
+                            <td><span class="check-icon">✓</span> 无敌，满状态</td>
+                        </tr>
+                        <tr>
+                            <td>职业解锁</td>
+                            <td><span class="cross-icon">✕</span> 需剧情触发</td>
+                            <td><span class="check-icon">✓</span> 全职业直接解锁</td>
+                        </tr>
+                        <tr>
+                            <td>地图探索</td>
+                            <td><span class="cross-icon">✕</span> 需通关章节</td>
+                            <td><span class="check-icon">✓</span> 全地图自由通行</td>
+                        </tr>
+                        <tr>
+                            <td>广告与内购</td>
+                            <td><span class="cross-icon">✕</span> 存在</td>
+                            <td><span class="check-icon">✓</span> 完全移除</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="guide" class="guide container">
+            <h2 class="section-title">安全安装指南</h2>
+            <div class="guide-steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>下载安装包</h4>
+                        <p>点击上方下载按钮获取最新的艾诺迪亚4修改版apk安装包，文件大小约 150MB。</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>启用未知来源</h4>
+                        <p>进入手机【设置】->【安全】->【未知来源】，开启允许安装来自此来源的应用权限。</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>安装并运行</h4>
+                        <p>找到下载的文件进行安装。安装完成后，在桌面图标点击启动游戏即可体验修改功能。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="section-title">常见问题 (FAQ)</h2>
+                <div class="faq-list">
+                    <div class="faq-item active">
+                        <button class="faq-question">
+                            修改版是否安全？会封号吗？
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>本版本基于本地数据修改，不涉及服务器数据交互，因此不会触发官方的反作弊机制，不会导致封号。但请注意，修改版仅适用于单机体验。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            修改版支持哪些安卓版本？
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>本版本主要适配 Android 5.0 及以上系统。对于 Android 10 或更高版本，部分手机可能需要关闭“应用访问权限”中的“查看所有文件”才能正常读取数据。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            下载后打不开怎么办？
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>请检查是否开启了“未知来源”权限。如果是华为、小米等机型，可能需要进入文件管理器，选择文件并点击“更多”->“安装”。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 艾诺迪亚4修改版资源站. All rights reserved.</p>
+            <p>本站资源仅供个人学习与娱乐使用，请支持正版游戏开发。</p>
+            <div class="footer-links">
+                <a href="#">免责声明</a>
+                <a href="#">隐私政策</a>
+                <a href="#">联系我们</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 折叠交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const icon = question.querySelector('span');
+                
+                question.addEventListener('click', () => {
+                    // 切换当前项状态
+                    const isActive = item.classList.contains('active');
+                    
+                    // 关闭所有其他项（手风琴效果）
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-question span').textContent = '+';
+                    });
+                    
+                    // 如果当前项未激活，则激活它
+                    if (!isActive) {
+                        item.classList.add('active');
+                        icon.textContent = '-';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
