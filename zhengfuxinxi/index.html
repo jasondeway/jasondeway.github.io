@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="政府信息化综合服务平台，提供政务服务、智慧城市、数字政府建设方案及行业资讯。关注数字化转型与政务公开。">
+    <meta name="keywords" content="政府信息化,智慧政务,数字政府,政务服务,智慧城市,电子政务">
+    <title>政府信息化-智慧政务建设与数字化服务综合平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a5f7a; /* 深蓝，代表稳重与科技 */
+            --secondary-color: #159895; /* 青绿，代表发展与生机 */
+            --accent-color: #f0a500; /* 橙色，用于强调与行动 */
+            --bg-color: #f4f7f6;
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-actions .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: #134b61;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+        }
+
+        /* 核心栏目 */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .card.blue { border-top-color: var(--primary-color); }
+        .card.green { border-top-color: var(--secondary-color); }
+        .card.orange { border-top-color: var(--accent-color); }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: #eef7f8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .card-link::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin 0.3s;
+        }
+
+        .card-link:hover::after {
+            margin-left: 10px;
+        }
+
+        /* 政策解读与新闻 */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .news-list {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .news-item {
+            display: flex;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            background: #f0f2f5;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .news-date .day {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .news-date .month {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .news-content h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .news-content h4:hover {
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .news-content p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .sidebar-widget {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-top: 20px;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #f0f2f5;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        .tag:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* 解决方案 */
+        .solutions-bg {
+            background-color: var(--white);
+        }
+
+        .solution-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            height: 250px;
+            margin-bottom: 30px;
+        }
+
+        .solution-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .solution-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .solution-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: var(--white);
+        }
+
+        .solution-overlay h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            background-color: #f9fbfd;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background-color: #f8f9fa;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px 20px;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* 简化处理，移动端隐藏菜单 */
+            }
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-text {
+                margin-top: 30px;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                政府信息化<span>智库</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#solutions">解决方案</a>
+                <a href="#news">政策资讯</a>
+                <a href="#cases">典型案例</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline" style="margin-right: 10px;">登录</a>
+                <a href="#" class="btn btn-primary">注册机构</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero 首屏 -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>赋能数字政府建设，提升公共服务效能</h1>
+                <p>专注于政府信息化顶层设计与落地实施，提供从电子政务云平台、数据共享交换到“一网通办”的全流程技术支撑与咨询服务。</p>
+                <div class="hero-btns">
+                    <a href="#solutions" class="btn btn-primary" style="padding: 12px 30px; font-size: 16px;">探索解决方案</a>
+                    <a href="#news" class="btn" style="padding: 12px 30px; font-size: 16px; background: rgba(255,255,255,0.2); margin-left: 10px;">了解最新政策</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>服务政务机构</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>数据共享率</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>技术运维支持</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- 使用 Picsum 生成科技感占位图 -->
+                <img src="https://picsum.photos/seed/govtech/600/400" alt="政府信息化数据中心示意图">
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心板块 -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-3">
+                <article class="card blue">
+                    <div class="card-icon">📊</div>
+                    <h3>电子政务云平台</h3>
+                    <p>构建安全、弹性、高效的政务云基础设施，实现政务资源集约化建设与按需分配，降低运维成本。</p>
+                    <a href="#" class="card-link">查看详情</a>
+                </article>
+                <article class="card green">
+                    <div class="card-icon">🌐</div>
+                    <h3>跨部门数据共享</h3>
+                    <p>打破信息孤岛，建立统一的数据交换枢纽，实现人口、法人、信用等基础数据的互联互通与共享。</p>
+                    <a href="#" class="card-link">查看详情</a>
+                </article>
+                <article class="card orange">
+                    <div class="card-icon">📱</div>
+                    <h3>“一网通办”服务</h3>
+                    <p>优化办事流程，推动政务服务向移动端延伸，让企业和群众办事像“网购”一样方便。</p>
+                    <a href="#" class="card-link">查看详情</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解决方案展示 -->
+    <section id="solutions" class="section solutions-bg">
+        <div class="container">
+            <div class="section-header">
+                <h2>全栈数字化解决方案</h2>
+                <p>针对不同层级政府部门的数字化转型需求，提供定制化的技术架构与实施路径</p>
+            </div>
+            <div class="grid-3">
+                <div class="solution-card">
+                    <img src="https://picsum.photos/seed/city1/400/300" alt="智慧城市大脑">
+                    <div class="solution-overlay">
+                        <h3>智慧城市大脑</h3>
+                        <p>城市运行态势感知与智能决策系统</p>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <img src="https://picsum.photos/seed/city2/400/300" alt="数字乡村建设">
+                    <div class="solution-overlay">
+                        <h3>数字乡村建设</h3>
+                        <p>乡村治理数字化与产业振兴平台</p>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <img src="https://picsum.photos/seed/city3/400/300" alt="综合治税平台">
+                    <div class="solution-overlay">
+                        <h3>综合治税平台</h3>
+                        <p>多部门协税护税与税源管理信息化</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 政策与资讯 -->
+    <section id="news" class="section">
+        <div class="container">
+            <div class="news-grid">
+                <div class="news-list">
+                    <h3 style="margin-bottom: 20px; font-size: 20px;">最新政策解读</h3>
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">15</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h4>国务院印发《关于加快推进全国一体化政务大数据体系建设的指导意见》</h4>
+                            <p>旨在提升政府数据治理能力，打破数据壁垒，推动数据要素市场化配置...</p>
+                        </div>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">12</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h4>财政部：2024年中央财政支持深化政务公开和政府信息化工作</h4>
+                            <p>重点支持政务公开标准化规范化建设及政府网站集约化平台升级改造...</p>
+                        </div>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">08</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-content">
+                            <h4>数字化转型背景下政务外网IPv6升级改造实施方案</h4>
+                            <p>全面支撑“一网通办”和“一网统管”业务需求，提升网络承载能力...</p>
+                        </div>
+                    </article>
+                </div>
+                <aside>
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">热门标签</h4>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag">放管服改革</a>
+                            <a href="#" class="tag">政务公开</a>
+                            <a href="#" class="tag">区块链政务</a>
+                            <a href="#" class="tag">电子证照</a>
+                            <a href="#" class="tag">跨省通办</a>
+                            <a href="#" class="tag">数字政府</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">推荐阅读</h4>
+                        <ul style="margin-top: 15px;">
+                            <li style="margin-bottom: 10px;"><a href="#" style="font-size: 14px; color: #333;">· 政务服务大厅智能化改造经验分享</a></li>
+                            <li style="margin-bottom: 10px;"><a href="#" style="font-size: 14px; color: #333;">· 如何构建安全可控的政务云环境</a></li>
+                            <li style="margin-bottom: 10px;"><a href="#" style="font-size: 14px; color: #333;">· 数字化转型中的数据安全防护策略</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 FAQ -->
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题解答</h2>
+                <p>关于政府信息化建设、系统对接及数据安全的常见疑问</p>
+            </div>
+            <div class="grid-3">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        政务信息化建设的主要难点在哪里？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        主要难点在于打破部门间的“数据孤岛”，建立统一的数据标准和共享交换机制，同时需要确保系统的高可用性与数据的安全性，平衡业务创新与合规要求。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        政务云平台如何保障数据安全？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        通过物理隔离、逻辑隔离、数据加密传输、访问权限控制、定期安全审计以及灾备备份等多种技术手段，构建全方位的安全防护体系。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        “一网通办”如何实现跨部门协同？
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        依托统一的大数据共享交换平台，各部门业务系统通过标准化接口进行对接，实现数据实时调用和业务流程在线流转，从而支持跨部门联办。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: white; margin-bottom: 15px;">
+                        政府信息化<span>智库</span>
+                    </div>
+                    <p style="font-size: 14px; line-height: 1.8; opacity: 0.8;">
+                        致力于为各级政府部门提供专业的信息化建设咨询、技术研发与运维服务，推动国家治理体系和治理能力现代化。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">解决方案</a></li>
+                        <li><a href="#">成功案例</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务领域</h4>
+                    <ul>
+                        <li><a href="#">智慧政务</a></li>
+                        <li><a href="#">数字政府</a></li>
+                        <li><a href="#">大数据应用</a></li>
+                        <li><a href="#">网络安全</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>电话：010-12345678</li>
+                        <li>邮箱：service@govinfo.com</li>
+                        <li>地址：北京市海淀区科技园路88号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 政府信息化智库 版权所有 | 京ICP备12345678号-1</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 手风琴交互
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                const isActive = parent.classList.contains('active');
+                
+                // 关闭所有其他的
+                document.querySelectorAll('.faq-item').forEach(child => {
+                    child.classList.remove('active');
+                });
+
+                // 如果之前没打开，则打开当前
+                if (!isActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+
+        // 简单的平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
