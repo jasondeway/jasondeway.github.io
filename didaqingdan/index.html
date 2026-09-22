@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="滴答清单下载页面提供官方安装包、最新版本下载指南、iOS Android Mac Windows 安装教程及使用技巧。支持跨平台同步，帮助您高效管理日程与任务。">
+    <meta name="keywords" content="滴答清单下载, 滴答清单官网, 任务管理软件, 待办事项APP, 跨平台同步, 效率工具">
+    <title>滴答清单下载 - 高效跨平台任务管理工具与使用指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0D7377;
+            --primary-light: #E0F7FA;
+            --accent-color: #FF7043;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #F9FAFB;
+            --bg-card: #FFFFFF;
+            --border-radius: 12px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 6px 16px rgba(0,0,0,0.08);
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background-color: #095c5f;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .download-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .app-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .app-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+        }
+
+        /* Features Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Download Guide Section */
+        .guide-section {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 80px;
+        }
+
+        .guide-steps {
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .step-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .step-content ul {
+            margin-top: 8px;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .step-content li {
+            margin-bottom: 4px;
+        }
+
+        /* Platform Grid */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .platform-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .platform-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .platform-version {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-question.active::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d3748;
+            color: #a0aec0;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #4a5568;
+            padding-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .guide-steps {
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                滴答清单
+            </div>
+            <nav class="nav-links">
+                <a href="#features">功能特点</a>
+                <a href="#guide">下载指南</a>
+                <a href="#faq">常见问题</a>
+                <a href="#" class="cta-btn">登录/注册</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>让生活井井有条，让工作事半功倍</h1>
+                <p>滴答清单是一款跨平台任务管理应用，支持iOS、Android、Mac、Windows、Web和手表设备。无论您是在办公室还是旅途中，都能随时记录和管理您的任务。</p>
+                <div class="download-badges">
+                    <a href="#" class="app-badge">📱 下载 iOS 版</a>
+                    <a href="#" class="app-badge">🤖 下载 Android 版</a>
+                    <a href="#" class="app-badge">💻 下载 Mac 版</a>
+                    <a href="#" class="app-badge">🖥️ 下载 Windows 版</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="container">
+            <div class="section-title">
+                <h2>为什么选择滴答清单？</h2>
+                <p>不仅仅是记录待办，更是一套完整的时间管理解决方案</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h3>实时跨平台同步</h3>
+                    <p>在手机上添加的任务，在电脑上即刻可见。数据云端存储，多设备无缝切换，绝不遗漏任何重要事项。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3>智能清单与分类</h3>
+                    <p>支持创建多个清单，为不同项目或生活领域（如工作、家庭、旅行）建立清晰的分类体系。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🔔</span>
+                    <h3>智能提醒与闹钟</h3>
+                    <p>支持一次性提醒、周期重复闹钟、地理位置提醒等多种方式，确保您按时完成每一项任务。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3>番茄钟专注模式</h3>
+                    <p>内置番茄钟功能，帮助您在专注工作或学习时排除干扰，提升效率，保持心流状态。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">✅</span>
+                    <h3>极简打卡体验</h3>
+                    <p>简洁直观的界面设计，只需轻点即可完成任务。完成时的成就感是持续保持高效的动力。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🔗</span>
+                    <h3>深度集成与分享</h3>
+                    <p>支持与微信、Slack、Gmail等工具集成，方便团队协作与任务分配，让信息流转更顺畅。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Download Guide Section -->
+        <section id="guide" class="container">
+            <div class="section-title">
+                <h2>安装与下载指南</h2>
+                <p>以下是为不同设备准备的安装步骤说明</p>
+            </div>
+            <div class="guide-section">
+                <div class="guide-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>选择您的设备平台</h3>
+                            <p>根据您使用的设备类型，访问对应的官方应用商店或官网下载页面。滴答清单支持 iOS、Android、Windows、macOS 和 Web 浏览器。</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>获取安装包或跳转商店</h3>
+                            <p>点击页面上的下载按钮，您将被引导至 App Store、Google Play、Microsoft Store 或直接下载 .exe 安装包。</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>完成安装与账号登录</h3>
+                            <p>安装完成后，打开应用。如果您已有账号，请直接登录；如果是首次使用，点击注册并创建一个免费账号，即可享受所有高级同步功能。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <span class="platform-name">iPhone & iPad</span>
+                    <span class="platform-version">App Store 下载</span>
+                </div>
+                <div class="platform-card">
+                    <span class="platform-name">Android 手机</span>
+                    <span class="platform-version">Google Play 下载</span>
+                </div>
+                <div class="platform-card">
+                    <span class="platform-name">Windows PC</span>
+                    <span class="platform-version">Windows Store 下载</span>
+                </div>
+                <div class="platform-card">
+                    <span class="platform-name">macOS</span>
+                    <span class="platform-version">Mac App Store 下载</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="container">
+            <div class="section-title">
+                <h2>常见问题 (FAQ)</h2>
+            </div>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">滴答清单是免费软件吗？</div>
+                    <div class="faq-answer">
+                        <p>滴答清单提供基础功能免费版，满足个人日常任务管理需求。同时我们也提供高级会员服务，解锁更多高级功能（如无限清单、无限标签、番茄钟统计等）。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何备份我的任务数据？</div>
+                    <div class="faq-answer">
+                        <p>滴答清单采用云端实时同步机制，您的所有数据都会自动备份到云端服务器。在更换设备或重装应用时，只需登录账号，数据即可自动恢复，无需手动备份。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">支持离线使用吗？</div>
+                    <div class="faq-answer">
+                        <p>支持。在手机端，即使在没有网络连接的情况下，您也可以查看和添加任务。待网络恢复后，应用会自动将您的更改同步到云端。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">可以导入其他任务管理软件的数据吗？</div>
+                    <div class="faq-answer">
+                        <p>目前滴答清单主要支持通过网页版或客户端的“导入”功能，从部分支持 CSV 或特定格式的第三方软件迁移数据，具体支持列表请参考官方帮助文档。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于滴答清单</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">联系支持</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>产品功能</h4>
+                <ul>
+                    <li><a href="#">任务管理</a></li>
+                    <li><a href="#">番茄钟</a></li>
+                    <li><a href="#">日历视图</a></li>
+                    <li><a href="#">习惯打卡</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">使用教程</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">微博</a></li>
+                    <li><a href="#">知乎专栏</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 滴答清单. All rights reserved. 本页面为演示用途，非官方网站。</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
