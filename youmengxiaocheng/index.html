@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="友盟小程序官网提供一站式小程序数据分析、运营增长、用户画像及安全监测服务。帮助开发者优化产品体验，提升转化率，实现商业价值最大化。">
+    <meta name="keywords" content="友盟小程序,小程序数据,小程序运营,小程序分析,微信小程序">
+    <title>友盟小程序-小程序数据分析与增长服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c73d2;
+            --primary-dark: #1a4bb5;
+            --secondary-color: #00c6ff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f5f7fa;
+            --bg-card: #ffffff;
+            --border-color: #e1e4e8;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .text-center { text-align: center; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .grid { display: grid; }
+        .gap-4 { gap: 16px; }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(44, 115, 210, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(44, 115, 210, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, #ffffff 0%, #f0f4ff 100%);
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        /* Stats */
+        .stats-bar {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Features */
+        .features {
+            background: var(--bg-card);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            background: var(--bg-body);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            background: white;
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-color);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(44, 115, 210, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* Dashboard Preview */
+        .dashboard-preview {
+            background: #f8f9fa;
+        }
+
+        .dashboard-container {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .dash-header {
+            background: #eef2f7;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e1;
+        }
+
+        .dash-body {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+        }
+
+        .dash-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .dash-menu-item {
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        .dash-menu-item.active {
+            background: #eef2f7;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .dash-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .dash-card {
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .dash-card h4 {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .dash-stat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .dash-bar-bg {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .dash-bar-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .price-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--primary-color);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .price-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+        }
+
+        .price span {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .price-features {
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--bg-body);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 16px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .faq-answer {
+            padding: 0 24px 20px;
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #a0a0a0;
+            padding: 60px 0 30px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text p {
+                margin: 0 auto 32px;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .feature-grid, .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dash-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .section-header h2 {
+                font-size: 28px;
+            }
+            .feature-grid, .pricing-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .price-card.featured {
+                transform: scale(1);
+            }
+            .hero-text h1 {
+                font-size: 32px;
+            }
+            .stats-bar {
+                padding: 30px 0;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="6" fill="#2c73d2"/>
+                    <path d="M7 7L17 17M17 7L7 17" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                友盟<span>小程序</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#features">功能概览</a>
+                <a href="#solutions">解决方案</a>
+                <a href="#pricing">价格方案</a>
+                <a href="#resources">开发文档</a>
+                <a href="#support">客户支持</a>
+            </nav>
+            <a href="#register" class="btn-cta">免费开始使用</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>数据驱动增长，<br><span>让小程序生意更简单</span></h1>
+                <p>友盟小程序提供一站式数据分析、用户画像、转化漏斗及增长工具。深度洞察用户行为，优化产品体验，助力您的业务实现指数级增长。</p>
+                <div class="hero-actions">
+                    <a href="#register" class="btn-cta">立即免费试用</a>
+                    <a href="#demo" class="btn-outline">查看产品演示</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://picsum.photos/seed/dashboard/600/400" alt="友盟小程序数据分析后台界面预览">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>500W+</h3>
+                <p>活跃开发者接入</p>
+            </div>
+            <div class="stat-item">
+                <h3>100M+</h3>
+                <p>小程序日活监测</p>
+            </div>
+            <div class="stat-item">
+                <h3>99.9%</h3>
+                <p>数据上报稳定性</p>
+            </div>
+            <div class="stat-item">
+                <h3>300+</h3>
+                <p>行业解决方案</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section features">
+        <div class="container">
+            <div class="section-header">
+                <h2>全方位小程序数据服务</h2>
+                <p>从启动到转化，从留存到传播，我们提供全链路的数据支持，助您精准决策。</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3>核心数据监控</h3>
+                    <p>实时监控小程序启动次数、页面访问量、用户停留时长等核心指标，异常情况秒级告警。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3>用户画像分析</h3>
+                    <p>基于多维数据构建用户画像，精准识别核心用户群体，助力精细化运营与个性化推荐。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <h3>转化漏斗分析</h3>
+                    <p>可视化追踪用户在关键流程中的流失节点，识别业务瓶颈，优化转化路径，提升ROI。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                        </svg>
+                    </div>
+                    <h3>社交裂变分析</h3>
+                    <p>深度分析分享路径与传播效果，计算病毒系数，评估推广活动效果，挖掘增长潜力。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3>全终端覆盖</h3>
+                    <p>支持微信、支付宝、百度、抖音等多平台小程序数据统一接入，打破平台壁垒，全局视角管理。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3>安全合规保障</h3>
+                    <p>严格遵循数据隐私保护法规，提供数据加密传输与存储，确保您的业务数据安全无忧。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview Section -->
+    <section id="demo" class="section dashboard-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>直观的数据看板</h2>
+                <p>拖拽式自定义报表，让复杂的数据一目了然，支持PC端与移动端实时同步。</p>
+            </div>
+            <div class="dashboard-container">
+                <div class="dash-header">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="dash-body">
+                    <div class="dash-sidebar">
+                        <div class="dash-menu-item active">概览</div>
+                        <div class="dash-menu-item">用户分析</div>
+                        <div class="dash-menu-item">留存分析</div>
+                        <div class="dash-menu-item">转化分析</div>
+                        <div class="dash-menu-item">事件分析</div>
+                        <div class="dash-menu-item">自定义报表</div>
+                    </div>
+                    <div class="dash-content">
+                        <div class="dash-card">
+                            <h4>今日访问量 (PV)</h4>
+                            <div style="font-size: 28px; font-weight: bold; color: #333; margin: 10px 0;">128,450</div>
+                            <div class="dash-bar-bg"><div class="dash-bar-fill" style="width: 75%"></div></div>
+                            <div class="dash-stat"><span>昨日</span><span>↑ 12%</span></div>
+                        </div>
+                        <div class="dash-card">
+                            <h4>独立访客数 (UV)</h4>
+                            <div style="font-size: 28px; font-weight: bold; color: #333; margin: 10px 0;">45,200</div>
+                            <div class="dash-bar-bg"><div class="dash-bar-fill" style="width: 60%; background: #00c6ff"></div></div>
+                            <div class="dash-stat"><span>昨日</span><span>↑ 8%</span></div>
+                        </div>
+                        <div class="dash-card">
+                            <h4>平均停留时长</h4>
+                            <div style="font-size: 28px; font-weight: bold; color: #333; margin: 10px 0;">3m 45s</div>
+                            <div class="dash-bar-bg"><div class="dash-bar-fill" style="width: 40%"></div></div>
+                            <div class="dash-stat"><span>目标</span><span>达标</span></div>
+                        </div>
+                        <div class="dash-card">
+                            <h4>跳出率</h4>
+                            <div style="font-size: 28px; font-weight: bold; color: #333; margin: 10px 0;">42.5%</div>
+                            <div class="dash-bar-bg"><div class="dash-bar-fill" style="width: 42.5%; background: #ff6b6b"></div></div>
+                            <div class="dash-stat"><span>目标</span><span>优化中</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>灵活的价格方案</h2>
+                <p>根据您的业务规模与需求，选择最适合的套餐，支持按月或按年付费。</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>基础版</h3>
+                    <div class="price">¥0<span>/月</span></div>
+                    <ul class="price-features">
+                        <li>基础数据监控</li>
+                        <li>5个自定义事件</li>
+                        <li>基础用户画像</li>
+                        <li>微信小程序接入</li>
+                    </ul>
+                    <a href="#" class="btn-cta btn-block">免费注册</a>
+                </div>
+                <div class="price-card featured">
+                    <div style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: var(--primary-color); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold;">最受欢迎</div>
+                    <h3>专业版</h3>
+                    <div class="price">¥299<span>/月</span></div>
+                    <ul class="price-features">
+                        <li>全渠道数据接入</li>
+                        <li>无限自定义事件</li>
+                        <li>高级转化漏斗</li>
+                        <li>用户分群与归因</li>
+                        <li>API 数据导出</li>
+                    </ul>
+                    <a href="#" class="btn-cta btn-block">立即升级</a>
+                </div>
+                <div class="price-card">
+                    <h3>企业版</h3>
+                    <div class="price">定制<span>/年</span></div>
+                    <ul class="price-features">
+                        <li>私有化部署支持</li>
+                        <li>专属客户经理</li>
+                        <li>定制化报表开发</li>
+                        <li>SLA 服务保障</li>
+                        <li>高级安全审计</li>
+                    </ul>
+                    <a href="#" class="btn-outline btn-block">联系销售</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">友盟小程序数据如何接入？</div>
+                    <div class="faq-answer">您只需在微信小程序后台引入友盟提供的 SDK 代码包，并在初始化时填入您的 AppKey，即可在几分钟内完成数据接入，无需修改业务逻辑。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">数据上报的延迟高吗？</div>
+                    <div class="faq-answer">我们的数据上报采用高可用集群架构，确保数据实时性与稳定性。在正常网络环境下，数据延迟通常在秒级或分钟级，具体取决于网络状况。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">是否支持多平台小程序数据统一查看？</div>
+                    <div class="faq-answer">支持。友盟小程序可同时接入微信、支付宝、百度、抖音、快手等多个平台的小程序数据，并在同一看板中进行对比分析。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何保护用户隐私数据？</div>
+                    <div class="faq-answer">我们严格遵守《网络安全法》及相关法规，对敏感数据进行加密存储和传输。同时提供匿名化处理功能，确保不泄露用户个人身份信息。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>友盟小程序</h2>
+                    <p>专注于为开发者提供专业的小程序数据分析与增长服务，助力移动互联网生态繁荣发展。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="#">数据分析</a></li>
+                        <li><a href="#">用户增长</a></li>
+                        <li><a href="#">营销工具</a></li>
+                        <li><a href="#">API 接口</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源支持</h4>
+                    <ul>
+                        <li><a href="#">开发文档</a></li>
+                        <li><a href="#">API 文档</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                        <li><a href="#">更新日志</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 友盟小程序服务. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#">微信</a> | <a href="#">微博</a> | <a href="#">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentNode;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+                      </html>
