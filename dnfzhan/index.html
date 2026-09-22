@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DNF战法攻略站提供龙牙、圆舞棍、矛精通、天击等技能加点详解，以及85级、90级、100级版本装备搭配推荐、流派分析与实战技巧。">
+    <meta name="keywords" content="dnf战法,地下城与勇士战法,战法加点,战法装备,战法流派">
+    <title>dnf战法-职业加点、流派分析与装备搭配指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --accent-color: #f5a623;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --spacing-md: 20px;
+            --spacing-lg: 40px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background-color: #357abd;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0f0ff 0%, #ffffff 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(74, 144, 226, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* Skill Tree Grid */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: #f0f4f8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .skill-name {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .skill-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .skill-level {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Equipment Section */
+        .equip-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
+        .equip-sidebar {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            height: fit-content;
+        }
+
+        .equip-list li {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .equip-list li:hover {
+            background-color: #f9f9f9;
+            color: var(--primary-color);
+        }
+
+        .equip-list li.active {
+            background-color: #e6f0fa;
+            color: var(--primary-color);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .equip-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+        }
+
+        .equip-item {
+            display: none;
+        }
+
+        .equip-item.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .equip-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .gear-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .gear-slot {
+            background: #f8f9fa;
+            border: 1px dashed #ccc;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .gear-slot h4 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .gear-slot p {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .equip-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .equip-sidebar {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .equip-sidebar ul {
+                display: flex;
+                gap: 10px;
+            }
+            
+            .equip-sidebar li {
+                border-bottom: none;
+                border-left: none;
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span>⚔️</span> DNF战法攻略
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#skills" class="active">技能加点</a></li>
+                    <li><a href="#builds">流派搭配</a></li>
+                    <li><a href="#equipment">装备推荐</a></li>
+                    <li><a href="#guide">进阶指南</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="cta-button">登录助手</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>DNF战法：灵动与力量的完美结合</h1>
+                <p>探索龙牙、天击、圆舞棍的战术奥义。从85级到100级版本，为您提供最权威的加点方案、装备搭配与实战技巧。</p>
+                <div class="hero-tags">
+                    <span class="tag">龙骑士</span>
+                    <span class="tag">矛精通</span>
+                    <span class="tag">圆舞棍</span>
+                    <span class="tag">强制转化</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">核心技能解析</h2>
+                    <p class="section-subtitle">理解技能机制是打造强力战法的第一步</p>
+                </div>
+                
+                <div class="skill-grid">
+                    <article class="skill-card">
+                        <div class="skill-icon">🐉</div>
+                        <h3 class="skill-name">矛精通</h3>
+                        <p class="skill-desc">核心输出技能，提升武器攻击力和物理暴击率。必满技能，无争议。</p>
+                        <span class="skill-level">推荐等级：10/20/满</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">⚡</div>
+                        <h3 class="skill-name">龙牙</h3>
+                        <p class="skill-desc">低消耗起手技能，拥有优秀的僵直控制效果。推荐点满。</p>
+                        <span class="skill-level">推荐等级：满</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">⚔️</div>
+                        <h3 class="skill-name">天击</h3>
+                        <p class="skill-desc">主要输出技能，可强制转化为魔法攻击。拥有独特的抓取判定。</p>
+                        <span class="skill-level">推荐等级：满</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🪃</div>
+                        <h3 class="skill-name">圆舞棍</h3>
+                        <p class="skill-desc">经典控制技能，可强制转化为龙牙。用于聚怪和打断技能。</p>
+                        <span class="skill-level">推荐等级：满</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🔥</div>
+                        <h3 class="skill-name">强袭流星打</h3>
+                        <p class="skill-desc">战法的大范围爆发技能，配合武器祝福效果显著。</p>
+                        <span class="skill-level">推荐等级：满</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🛡️</div>
+                        <h3 class="skill-name">圆舞棍</h3>
+                        <p class="skill-desc">拥有优秀的僵直控制效果，是连招衔接的关键。</p>
+                        <span class="skill-level">推荐等级：满</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment & Builds Section -->
+        <section id="builds" class="section" style="background-color: #eef2f5;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">流派与装备搭配</h2>
+                    <p class="section-subtitle">根据副本难度与个人操作习惯选择合适的构建方案</p>
+                </div>
+
+                <div class="equip-layout">
+                    <!-- Sidebar Navigation -->
+                    <aside class="equip-sidebar">
+                        <ul class="equip-list">
+                            <li class="active" onclick="switchEquip('current', this)">当前版本 (100级)</li>
+                            <li onclick="switchEquip('trend', this)">热门趋势 (直伤流)</li>
+                            <li onclick="switchEquip('support', this)">辅助/奶系搭配</li>
+                            <li onclick="switchEquip('low', this)">平民/过渡搭配</li>
+                        </ul>
+                    </aside>
+
+                    <!-- Content Area -->
+                    <div class="equip-content">
+                        
+                        <!-- Build 1: Current Version -->
+                        <div id="current" class="equip-item active">
+                            <h3 class="equip-title">100级版本：标准矛系输出</h3>
+                            <p style="margin-bottom: 20px; color: #666;">这套方案侧重于爆发伤害，适合大多数副本环境。</p>
+                            <h4 style="margin-bottom: 10px;">核心装备</h4>
+                            <div class="gear-grid">
+                                <div class="gear-slot">
+                                    <h4>武器</h4>
+                                    <p>胜负之役矛</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>护肩</h4>
+                                    <p>深渊窥视者护肩</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>上衣</h4>
+                                    <p>深渊窥视者上衣</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>下装</h4>
+                                    <p>深渊窥视者下装</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>鞋子</h4>
+                                    <p>深渊窥视者鞋子</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>首饰</h4>
+                                    <p>黑灵缠绕项链 + 玛尼蒂丝的手镯 + 冰冻之心戒指</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>特殊</h4>
+                                    <p>深潜迷航肩甲 + 深潜迷航腰甲 + 生命源动力护腿</p>
+                                </div>
+                            </div>
+                            <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 4px; font-size: 0.9rem; color: #856404;">
+                                <strong>配装思路：</strong> 使用深渊窥视者3件套作为核心，利用黑灵缠绕项链提供的高额伤害提升，配合深潜迷航3件套提供技能攻击力。这套装备在输出循环上非常流畅。
+                            </div>
+                        </div>
+
+                        <!-- Build 2: Trend -->
+                        <div id="trend" class="equip-item">
+                            <h3 class="equip-title">直伤流派：爆发最大化</h3>
+                            <p style="margin-bottom: 20px; color: #666;">通过武器和特殊装备直接提升技能伤害，无视防御。</p>
+                            <h4 style="margin-bottom: 10px;">核心装备</h4>
+                            <div class="gear-grid">
+                                <div class="gear-slot">
+                                    <h4>武器</h4>
+                                    <p>胜负之役矛 (自定义)</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>左槽</h4>
+                                    <p>冰花之舞左槽</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>右槽</h4>
+                                    <p>深潜迷航之眼</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>耳环</h4>
+                                    <p>深潜迷航之眼</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>首饰</h4>
+                                    <p>深潜迷航3件套 + 黑灵缠绕项链</p>
+                                </div>
+                            </div>
+                            <div style="margin-top: 20px; padding: 15px; background: #d1ecf1; border-radius: 4px; font-size: 0.9rem; color: #0c5460;">
+                                <strong>配装思路：</strong> 专注于将所有伤害来源转化为直接技能伤害，减少暴击率波动。适合追求极致爆发秒杀的玩家。
+                            </div>
+                        </div>
+
+                        <!-- Build 3: Support -->
+                        <div id="support" class="equip-item">
+                            <h3 class="equip-title">辅助流：团队增益</h3>
+                            <p style="margin-bottom: 20px; color: #666;">虽然战法通常为输出职业，但在特定组队环境下可兼顾辅助。</p>
+                            <div class="gear-grid">
+                                <div class="gear-slot">
+                                    <h4>核心</h4>
+                                    <p>圣骑士辅助装备</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>辅助技能</h4>
+                                    <p>武器祝福、天使祝福</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Build 4: Low Budget -->
+                        <div id="low" class="equip-item">
+                            <h3 class="equip-title">平民过渡：高性价比</h3>
+                            <p style="margin-bottom: 20px; color: #666;">使用泰波尔斯或普雷装备进行过渡，平衡伤害与生存。</p>
+                            <div class="gear-grid">
+                                <div class="gear-slot">
+                                    <h4>武器</h4>
+                                    <p>巴鲁姆克之剑</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>防具</h4>
+                                    <p>深渊窥视者 或 时空之渊</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>首饰</h4>
+                                    <p>深潜迷航3件套</p>
+                                </div>
+                                <div class="gear-slot">
+                                    <h4>特殊</h4>
+                                    <p>命运之星</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">实战操作技巧</h2>
+                    <p class="section-subtitle">从新手到高手的进阶之路</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <article style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <h3 style="margin-bottom: 15px; color: var(--primary-color);">1. 抓取技能的运用</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                            战法的核心在于抓取。天击和圆舞棍都具有抓取判定。在面对无法被攻击的怪物时，先使用圆舞棍将其击飞或击倒，再接龙牙或天击，可以轻松打断怪物动作，建立输出环境。
+                        </p>
+                    </article>
+
+                    <article style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <h3 style="margin-bottom: 15px; color: var(--primary-color);">2. 转化机制</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                            强制转化是天击转化为龙牙的关键。在技能快结束时，按转化键可以取消当前技能并立即释放龙牙，这能极大增加输出连贯性。同时，圆舞棍也可以转化为龙牙，用于调整位置或衔接技能。
+                        </p>
+                    </article>
+
+                    <article style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <h3 style="margin-bottom: 15px; color: var(--primary-color);">3. 输出循环</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                            优先使用武器祝福提升攻速和物攻。起手使用龙牙聚怪，接天击或圆舞棍，随后释放强袭流星打。在冷却时，利用龙牙和圆舞棍进行连招维持DPS。
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>关于本站</h3>
+                    <p style="font-size: 0.9rem; color: #bdc3c7;">
+                        专注于DNF战法职业的攻略分享。提供最新的技能加点、装备搭配与副本打法，帮助玩家打造最强龙骑士。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#">技能加点模拟器</a></li>
+                        <li><a href="#">装备合成器</a></li>
+                        <li><a href="#">最新活动公告</a></li>
+                        <li><a href="#">职业平衡调整</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>相关职业</h3>
+                    <ul>
+                        <li><a href="#">dnf元素</a></li>
+                        <li><a href="#">dnf光剑</a></li>
+                        <li><a href="#">dnf魔道学者</a></li>
+                        <li><a href="#">dnf战斗法师</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 DNF战法攻略站. All Rights Reserved. 本站内容仅供学习参考，与腾讯游戏无直接关联。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Equipment Switching Logic
+        function switchEquip(id, element) {
+            // Remove active class from all items
+            const items = document.querySelectorAll('.equip-item');
+            items.forEach(item => item.classList.remove('active'));
+
+            // Add active class to selected item
+            document.getElementById(id).classList.add('active');
+
+            // Update sidebar styles
+            const listItems = document.querySelectorAll('.equip-list li');
+            listItems.forEach(li => li.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
