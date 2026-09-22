@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影视剧歌曲-经典原声带与影视金曲收藏指南</title>
+    <meta name="description" content="本站提供海量影视剧歌曲资源，收录电视剧原声、电影插曲、动漫主题曲及经典影视金曲。包含歌曲试听、歌词赏析、影视原声碟推荐及背景音乐库。">
+    <meta name="keywords" content="影视剧歌曲,影视原声,电影插曲,电视剧主题曲,动漫歌曲,影视金曲">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #457b9d;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2b2d42;
+            --text-light: #8d99ae;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: var(--bg-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            align-items: center;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 200px;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Section Title */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .section-header a {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-light);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Grid Layout */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Song Card */
+        .song-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-cover {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .song-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .card-body {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .song-artist {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .song-meta {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            padding-top: 0.5rem;
+            border-top: 1px solid #f1f3f5;
+        }
+
+        .tag {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #495057;
+        }
+
+        /* Features / Info Section */
+        .info-section {
+            background: white;
+            padding: 3rem 1rem;
+            border-radius: var(--border-radius);
+            margin-top: 3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .info-content h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .info-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .info-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 0;
+            margin-right: 0.5rem;
+        }
+
+        .info-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: #a8dadc;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #8d99ae;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin: 1rem 0;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                <span>影视</span>金曲库
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">电视剧</a></li>
+                    <li><a href="#">电影</a></li>
+                    <li><a href="#">动漫</a></li>
+                    <li><a href="#">榜单</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索影视剧歌曲...">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>重温经典，聆听光影背后的故事</h1>
+        <p>汇集全网热门影视剧歌曲，为您打造沉浸式影视原声体验。从热血动漫到催泪电影，每一首都是不可错过的记忆。</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <h3>10,000+</h3>
+                <p>收录曲目</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>热门影视</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>正版授权</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Filter Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active">热门推荐</button>
+            <button class="tab-btn">电视剧原声</button>
+            <button class="tab-btn">电影插曲</button>
+            <button class="tab-btn">动漫神曲</button>
+            <button class="tab-btn">怀旧金曲</button>
+        </div>
+
+        <!-- Section 1: Trending Songs -->
+        <section>
+            <div class="section-header">
+                <h2>本周热播影视金曲</h2>
+                <a href="#">查看更多 &rarr;</a>
+            </div>
+            <div class="grid-layout">
+                <!-- Song Card 1 -->
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/music1/400/300" alt="歌曲封面">
+                        <div class="play-overlay">
+                            <div class="play-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="song-title">孤勇者</h3>
+                        <p class="song-artist">陈奕迅 / 猫和老鼠</p>
+                        <div class="song-meta">
+                            <span class="tag">热血</span>
+                            <span>动画</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Song Card 2 -->
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/music2/400/300" alt="歌曲封面">
+                        <div class="play-overlay">
+                            <div class="play-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="song-title">如愿</h3>
+                        <p class="song-artist">王菲 / 神舟十四号发射</p>
+                        <div class="song-meta">
+                            <span class="tag">温情</span>
+                            <span>励志</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Song Card 3 -->
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/music3/400/300" alt="歌曲封面">
+                        <div class="play-overlay">
+                            <div class="play-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="song-title">光年之外</h3>
+                        <p class="song-artist">邓紫棋 / 电影《太空旅客》</p>
+                        <div class="song-meta">
+                            <span class="tag">浪漫</span>
+                            <span>科幻</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Song Card 4 -->
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/music4/400/300" alt="歌曲封面">
+                        <div class="play-overlay">
+                            <div class="play-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="song-title">乌梅子酱</h3>
+                        <p class="song-artist">李荣浩 / 微信红包封面</p>
+                        <div class="song-meta">
+                            <span class="tag">甜蜜</span>
+                            <span>流行</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Section 2: Intro/Info -->
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-content">
+                    <h2>什么是影视剧歌曲？</h2>
+                    <p>影视剧歌曲是指专门为电影、电视剧、动画片等影视作品创作的背景音乐或主题曲。它们不仅是烘托剧情氛围的重要工具，往往也是影视作品的重要组成部分，能够极大地增强观众的代入感。</p>
+                    <p>优质的影视剧歌曲能够跨越作品本身，成为独立的流行文化符号，被大众传唱。</p>
+                    <ul class="info-list">
+                        <li><strong>主题曲：</strong>通常用于片头或片尾，概括剧情或表达核心情感。</li>
+                        <li><strong>插曲：</strong>穿插在剧情中，配合特定场景的情绪变化。</li>
+                        <li><strong>原声带：</strong>包含电影或剧集使用的全部背景音乐合集。</li>
+                    </ul>
+                </div>
+                <div class="info-image">
+                    <img src="https://picsum.photos/seed/concert/600/400" alt="音乐现场">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Categories -->
+        <section>
+            <div class="section-header">
+                <h2>按类型浏览</h2>
+            </div>
+            <div class="grid-layout">
+                <div class="song-card" style="padding: 1.5rem; justify-content: center; align-items: center; text-align: center; min-height: 200px;">
+                    <h3>🇨🇳 国产剧集</h3>
+                    <p style="color:var(--text-light); font-size:0.9rem; margin-top:0.5rem;">古装、现代、悬疑热门原声</p>
+                </div>
+                <div class="song-card" style="padding: 1.5rem; justify-content: center; align-items: center; text-align: center; min-height: 200px;">
+                    <h3>🎬 进口电影</h3>
+                    <p style="color:var(--text-light); font-size:0.9rem; margin-top:0.5rem;">好莱坞、欧洲、日韩经典配乐</p>
+                </div>
+                <div class="song-card" style="padding: 1.5rem; justify-content: center; align-items: center; text-align: center; min-height: 200px;">
+                    <h3>🎮 动漫游戏</h3>
+                    <p style="color:var(--text-light); font-size:0.9rem; margin-top:0.5rem;">二次元热血与治愈神曲</p>
+                </div>
+                <div class="song-card" style="padding: 1.5rem; justify-content: center; align-items: center; text-align: center; min-height: 200px;">
+                    <h3>📻 怀旧金曲</h3>
+                    <p style="color:var(--text-light); font-size:0.9rem; margin-top:0.5rem;">八九十年代影视金曲回顾</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>影视金曲库</h4>
+                <p style="color: #a8dadc; font-size: 0.9rem;">致力于提供最全、最优质的影视剧歌曲资源与试听服务。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门分类</h4>
+                <ul>
+                    <li><a href="#">电视剧原声</a></li>
+                    <li><a href="#">电影插曲</a></li>
+                    <li><a href="#">动漫歌曲</a></li>
+                    <li><a href="#">经典怀旧</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 影视金曲库. All rights reserved. 本站内容仅供学习交流，请支持正版音乐.
+        </div>
+    </footer>
+
+</body>
+  </html>
